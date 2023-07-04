@@ -1,0 +1,19 @@
+{
+  "include": [
+    "src/**/*.js",
+    "src/**/*.d.ts"
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "strict": true,
+    "target": "ESNext",
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "NodeNext",
+    "lib": ["ESNext", "DOM"],
+    "declaration": true,
+    "declarationDir": "./types",
+    "emitDeclarationOnly": true,
+    "allowJs": true,
+    "checkJs": true
+  }
+}

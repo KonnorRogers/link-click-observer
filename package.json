@@ -1,0 +1,48 @@
+{
+  "name": "link-click-observer",
+  "version": "1.0.0",
+  "main": "./src/exports/index.js",
+  "module": "./src/exports/index.js",
+  "types": "./types/exports/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./src/exports/index.js",
+      "types": "./types/exports/index.d.ts"
+    },
+    "./package.json": "./package.json",
+    "./exports/*": {
+      "import": "./src/*/*.js",
+      "types": "./types/*/*.d.ts"
+    }
+  },
+  "files": [
+    "src",
+    "types",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "rm -rf types exports && tsc && mkdir -p exports && cp -R {src,types}/exports/* exports",
+    "deploy:patch": "npm run build && npm version patch && npm publish && git push --follow-tags",
+    "deploy:minor": "npm run build && npm version minor && npm publish && git push --follow-tags",
+    "deploy:major": "npm run build && npm version major && npm publish && git push --follow-tags",
+    "test": "web-test-runner"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "repository": "git@github.com:KonnorRogers/link-click-observer.git",
+  "bugs": {
+    "url": "https://github.com/KonnorRogers/link-click-observer/issues"
+  },
+  "homepage": "https://github.com/KonnorRogers/link-click-observer",
+  "author": "KonnorRogers <konnor5456@gmail.com>",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "typescript": "^5.1.6"
+  },
+  "devDependencies": {
+    "link-click-observer": "link:."
+  }
+}
