@@ -3,6 +3,10 @@
 To intercept any and all link clicks (including inside shadow roots!) and be
 able to apply your routing function. No more `<Link />` components or routing directives!
 
+## Installation
+
+`npm install link-click-observer`
+
 ## Examples
 
 ### Regular ole JS
