@@ -21,7 +21,7 @@ nothing is stopping you from doing it either.
 import { LinkClickObserver } from "link-click-observer"
 
 const linkClickObserver = new LinkClickObserver(document)
-linkClickObserver.shouldNavigate = ({location, event, anchorElement}) => true
+linkClickObserver.shouldStopNativeNavigation = ({location, event, anchorElement}) => true
 linkClickObserver.navigate = ({location, event, anchorElement}) => {
   // Don't do this. Just an example.
   window.location.href = location
