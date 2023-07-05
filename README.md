@@ -12,7 +12,10 @@ reserved for frameworks and libraries that implement client-side routing. That s
 nothing is stopping you from doing it either.
 
 ```js
+// index.js
+
 import { LinkClickObserver } from "link-click-observer"
+
 const linkClickObserver = new LinkClickObserver(document)
 linkClickObserver.shouldNavigate = ({location, event, anchorElement}) => true
 linkClickObserver.navigate = ({location, event, anchorElement}) => {
@@ -26,6 +29,8 @@ linkClickObserver.navigate = ({location, event, anchorElement}) => {
 Leave those silly `<Link />` components in the past and simply use `<a href="/{path}">`
 
 ```js
+// src/App.js
+
 import { LinkClickObserver } from "link-click-observer"
 import { useNavigate } from "react-router-dom";
 
@@ -35,13 +40,14 @@ export function App() {
   useEffect(() => {
     const linkClickObserver = new LinkClickObserver(document);
     linkClickObserver.shouldStopNativeNavigation = ({location, event, anchorElement}) => {
-      // Use this to call `event.preventDefault`, `event.stopPropagation`, and `event.stopImmediatePropagation` to
-      // allow your client side router to take over.
+      // if this returns `true`, it will call `event.preventDefault`, `event.stopPropagation`,
+      // and `event.stopImmediatePropagation` for you allowing your
+      // client side router to take over.
       return true
     }
-    linkClickObserver.navigate = (path, anchorElement) => {
-      // This is where you call your client side router.
-      navigate(path);
+    linkClickObserver.navigate = ({ location, event, anchorElement }) => {
+      // This is where you call your client side routing function.
+      navigate(location);
     };
     linkClickObserver.start();
 
