@@ -10,7 +10,7 @@
 /**
 * @example
 *   const linkClickObserver = new LinkClickObserver(document);
-*   linkClickObserver.shouldNavigate = ({location, event, anchorElement}) => {
+*   linkClickObserver.shouldStopNativeNavigation = ({location, event, anchorElement}) => {
 *     return true
 *   }
 *
