@@ -11,8 +11,8 @@
     },
     "./package.json": "./package.json",
     "./exports/*": {
-      "import": "./src/*/*.js",
-      "types": "./types/*/*.d.ts"
+      "import": "./src/exports/*/*.js",
+      "types": "./types/exports/*/*.d.ts"
     }
   },
   "files": [
